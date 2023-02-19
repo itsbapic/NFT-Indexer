@@ -1,4 +1,4 @@
-# Simple NFT Indexer
+# 🖼️ Simple NFT Indexer 🖼️
 
 This is an NFT Indexer app that uses the Alchemy SDK rigged to Alchemy's Enhanced APIs in order to display all of an address's ERC-721 tokens, including a call to any `image` attached to their metadata.
 
@@ -7,17 +7,3 @@ This is an NFT Indexer app that uses the Alchemy SDK rigged to Alchemy's Enhance
 1. Rename the `.envexample` file to `.env` and insert your Alchemy API Key. [Get one here if you don't have one!](http://alchemy.com)
 2. Install dependencies by running `npm install`
 3. Start application by running `npm run dev`
-
-## Challenge
-
-Fork this repo and build out more features! This is minimalistic on purpose.
-
-We purposefully built this out to be a skeleton version of what can be the next big thing so that you can practice some software development! Here are a few challenge suggestions:
-
-1. Add Wallet integration so that any user that connects their wallet can check see their NFTs in a flash! ✅
-2. There is no indication of a request in progress... that's bad UX! Do you think you can add some sort of indication of loading? ✅
-3. Add some styling! 🎨 ✅
-4. The NFT images can sometimes appear and sometimes not... can you think of ways to fix that? ✅
-5. There is no error-checking for wrongly formed requests, or really any error checking of any kind... can you add some in? ✅
-6. The images and grid display could look better... anything you can do about that? ✅
-7. Can you add ENS support for inputs? ✅

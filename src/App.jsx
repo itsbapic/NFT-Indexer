@@ -5,7 +5,6 @@ import {
   Card,
   CardBody,
   CardFooter,
-  Center,
   Divider,
   Flex,
   Heading,
@@ -15,15 +14,6 @@ import {
   SimpleGrid,
   Spinner,
   Stack,
-  Table,
-  TableCaption,
-  TableContainer,
-  Tbody,
-  Td,
-  Tfoot,
-  Th,
-  Thead,
-  Tr,
   Text,
   useBoolean,
   Collapse,
@@ -45,8 +35,6 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   async function getNFTsForOwners() {
-    console.log(userAddress);
-
     setLoading(true);
     const config = {
       apiKey: import.meta.env.VITE_ALCHEMY_API_KEY,
@@ -62,9 +50,8 @@ function App() {
       setLoading(false);
       return;
     }
-    console.log(userAddress);
+
     const data = await alchemy.nft.getNftsForOwner(userName);
-    console.log(data);
     setResults(data);
 
     const tokenDataPromises = [];
@@ -81,14 +68,12 @@ function App() {
 
     setTokenDataObjects(await Promise.all(tokenDataPromises));
     setTokenAddresses(tokenAddressArray);
-    console.log(tokenAdresses);
     setHasQueried(true);
     setLoading(false);
   }
 
   async function getUserTokenBalance() {
     setUserAddress(user);
-    console.log(user);
     await getTokenBalance();
   }
 
@@ -131,7 +116,9 @@ function App() {
           Fetch NFTs
         </Button>
 
-        <Heading my={10}>Here are your NFTs:</Heading>
+        <Heading color="grey" my={10}>
+          NFTs owned by above address:
+        </Heading>
         {loading ? (
           <Spinner />
         ) : (
@@ -144,7 +131,6 @@ function App() {
                       <Flex
                         flexDir={"column"}
                         color="white"
-                        // bg="blue"
                         w={"20vw"}
                         key={e.id}
                       >
@@ -211,7 +197,7 @@ function App() {
                 </SimpleGrid>
               ) : (
                 <Heading size="lg" color="grey" my={10}>
-                  No NFTs found!
+                  No NFTs found :(
                 </Heading>
               )}
             </Collapse>
